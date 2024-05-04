@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-class User {
+export class User {
   name: string;
   location: {
     lat: number;
@@ -13,7 +13,5 @@ class User {
       lat: parseFloat(faker.address.latitude()),
       long: parseFloat(faker.address.longitude()),
     };
-
-    console.log(this.name);
   }
 }
