@@ -1,12 +1,13 @@
 import { Company } from "./Company";
 import { User } from "./user";
 
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number;
     long: number;
   };
   markerContent(): string;
+  color: string;
 }
 
 export class CustomMap {
