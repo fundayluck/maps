@@ -22,22 +22,20 @@ export class CustomMap {
   }
 
   addMarker(mappable: Mappable): void {
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.long,
       },
     });
-  }
 
-  //   addCompanyMarker(company: Company): void {
-  //     new google.maps.Marker({
-  //       map: this.googleMap,
-  //       position: {
-  //         lat: company.location.lat,
-  //         lng: company.location.long,
-  //       },
-  //     });
-  //   }
+    marker.addListener("click", () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: "hi there",
+      });
+
+      infoWindow.open(this.googleMap, marker);
+    });
+  }
 }
